@@ -32,15 +32,14 @@ namespace WindowsFormsApp_06_Struct
     struct Point
     {
         public int x;
-        internal int y; //internal(접근 제한자) - 같은 프로젝트 안에서만 접근 가능
-        public int z;
+        public int y;
+        internal int z; //internal(접근 제한자) - 같은 프로젝트 안에서만 접근 가능
 
         public int Diff_xy()
         {
             return x - y;
         }
     }
-
     #endregion
     public partial class Form1 : Form
     {
@@ -96,6 +95,17 @@ namespace WindowsFormsApp_06_Struct
 
             #endregion
 
+            string input1 = Console.ReadLine();
+            string[] place_A = input1.Split(' ');
+            int Ax = int.Parse(place_A[0]);
+            int Ay = int.Parse(place_A[1]);
+            string input2 = Console.ReadLine();
+            string[] place_B = input2.Split(' ');
+            int Bx = int.Parse(place_B[0]);
+            int By = int.Parse(place_B[1]);
+
+            double dist = Math.Sqrt(Math.Pow(Ax - Bx, 2) + Math.Pow(Ay - By, 2));
+            Console.WriteLine($"√{{(Ax - Bx)² + (Bx - By)²}} = {dist}");
         }
 
         //일반 함수 선언문
