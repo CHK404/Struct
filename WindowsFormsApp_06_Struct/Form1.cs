@@ -95,19 +95,25 @@ namespace WindowsFormsApp_06_Struct
 
             #endregion
 
+            Point pa = new Point();
+            Point pb = new Point();
             string input1 = Console.ReadLine();
             string[] place_A = input1.Split(' ');
             int Ax = int.Parse(place_A[0]);
             int Ay = int.Parse(place_A[1]);
+            pa.x = Ax;
+            pa.y = Ay;
             string input2 = Console.ReadLine();
             string[] place_B = input2.Split(' ');
             int Bx = int.Parse(place_B[0]);
             int By = int.Parse(place_B[1]);
+            pb.x = Bx;
+            pb.y = By;
 
-            double dist = Math.Sqrt(Math.Pow(Ax - Bx, 2) + Math.Pow(Ay - By, 2));
-            Console.WriteLine($"√{{(Ax - Bx)² + (Bx - By)²}} = {dist}");
+            Console.WriteLine($"√{{(x₂ - x₁)² + (y₂ - y₁)²}} = {dist(pa, pb)}");
         }
 
+        static double dist(Point pa, Point pb) => Math.Sqrt(Math.Pow(pa.x - pb.x, 2) + Math.Pow(pa.y - pb.y, 2));
         //일반 함수 선언문
         int Add(int a, int b)
         {
