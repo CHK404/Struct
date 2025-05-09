@@ -40,6 +40,12 @@ namespace WindowsFormsApp_06_Struct
             return x - y;
         }
     }
+    struct Student
+    {
+        public string name;
+        public int age;
+        public double score;
+    }
     #endregion
     public partial class Form1 : Form
     {
@@ -94,25 +100,59 @@ namespace WindowsFormsApp_06_Struct
             Hi();
 
             #endregion
-
+            //ex1
             Point pa = new Point();
             Point pb = new Point();
-            string input1 = Console.ReadLine();
-            string[] place_A = input1.Split(' ');
+            Console.Write("좌표 입력: ");
+            string[] place_A = Console.ReadLine().Split();
+            //공백 기준으로 사용자 입력을 나눠서 배열로 반환
             int Ax = int.Parse(place_A[0]);
             int Ay = int.Parse(place_A[1]);
             pa.x = Ax;
             pa.y = Ay;
-            string input2 = Console.ReadLine();
-            string[] place_B = input2.Split(' ');
+            Console.Write("좌표 입력: ");
+            string[] place_B = Console.ReadLine().Split();
             int Bx = int.Parse(place_B[0]);
             int By = int.Parse(place_B[1]);
             pb.x = Bx;
             pb.y = By;
 
             Console.WriteLine($"√{{(x₂ - x₁)² + (y₂ - y₁)²}} = {dist(pa, pb)}");
-        }
 
+
+            //ex2
+            Student Sa = new Student();
+            Console.Write("학생 정보를 입력하세요: ");
+            string[] student_A = Console.ReadLine().Split();
+            string A1 = student_A[0];
+            int A2 = int.Parse(student_A[1]);
+            double A3 = double.Parse(student_A[2]);
+            Sa.name = A1;
+            Sa.age = A2;
+            Sa.score = A3;
+            Student Sb = new Student();
+            Console.Write("학생 정보를 입력하세요: ");
+            string[] student_B = Console.ReadLine().Split();
+            string B1 = student_B[0];
+            int B2 = int.Parse(student_B[1]);
+            double B3 = double.Parse(student_B[2]);
+            Sb.name = B1;
+            Sb.age = B2;
+            Sb.score = B3;
+            Student Sc = new Student();
+            Console.Write("학생 정보를 입력하세요: ");
+            string[] student_C = Console.ReadLine().Split();
+            string C1 = student_C[0];
+            int C2 = int.Parse(student_C[1]);
+            double C3 = double.Parse(student_C[2]);
+            Sc.name = C1;
+            Sc.age = C2;
+            Sc.score = C3;
+
+            Console.WriteLine($"이름: {Sa.name}, 나이: {Sa.age}, 점수: {Sa.score}");
+            Console.WriteLine($"이름: {Sb.name}, 나이: {Sb.age}, 점수: {Sb.score}");
+            Console.WriteLine($"이름: {Sc.name}, 나이: {Sc.age}, 점수: {Sc.score}");
+        }
         static double dist(Point pa, Point pb) => Math.Sqrt(Math.Pow(pa.x - pb.x, 2) + Math.Pow(pa.y - pb.y, 2));
         //일반 함수 선언문
         int Add(int a, int b)
